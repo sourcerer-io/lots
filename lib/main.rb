@@ -110,6 +110,8 @@ while running
       puts enemy.inspect
     when "suicide"
       player.dead = 1
+    when "help", "h", "?"
+      ui.help
     when "quit"
       ui.quit
       running = nil

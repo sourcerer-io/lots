@@ -19,6 +19,7 @@ UI_FRAME_LOWER_RIGHT = "\u251B"
 
 UI_COPYRIGHT = "\u00A9"
 UI_EMAIL = "\u2709"
+UI_ARROW = "\u2712"
 
 class UI
 
@@ -34,13 +35,37 @@ class UI
     new_line
   end
 
+  def help
+    new_line
+    print "Valid Commands".light_green
+    new_line(2)
+    print UI_ARROW.light_yellow + " " + "east, e, right, ".light_white + "or " + "r".light_white + " - Move east (right)"
+    new_line
+    print UI_ARROW.light_yellow + " " + "south, s, down, ".light_white + "or " + "d".light_white + " - Move south (down)"
+    new_line
+    print UI_ARROW.light_yellow + " " + "west, w, left, ".light_white + "or " + "l".light_white + " - Move west (left)"
+    new_line
+    print UI_ARROW.light_yellow + " " + "north, n, up, ".light_white + "or " + "u".light_white + " - Move north (up)"
+    new_line
+    print UI_ARROW.light_yellow + " " + "map".light_white + " - Display map"
+    new_line
+    print UI_ARROW.light_yellow + " " + "where".light_white + " - Describe current surroundings"
+    new_line
+    print UI_ARROW.light_yellow + " " + "attack".light_white + " - Attack (only in combat)"
+    new_line
+    print UI_ARROW.light_yellow + " " + "enemy".light_white + " - Display information about your enemy"
+    new_line
+    print UI_ARROW.light_yellow + " " + "quit".light_white + " - Quits the game"
+    new_line
+  end
+
   # Ask user a question. A regular expression filter can be applied.
   def ask(question, filter = nil)
     if filter
       match = false
       answer = nil
       while match == false
-        print "\u2712 ".red + question.light_white + " "
+        print UI_ARROW.red + question.light_white + " "
         answer = gets.chomp
 	    if answer.match(filter)
 	      return answer
