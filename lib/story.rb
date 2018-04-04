@@ -41,10 +41,31 @@ STORY_PLAYER_DEAD = [
   "You failed to reach the Sourcerer. Please try again.",
 ]
 
+STORY_END = [
+  "You've reached the Sourcerer!".light_white,
+  "",
+  "He stares deeply into your eyes. His knowledable, seeking gaze inspires you to recall",
+  "the long journey you have endured. You recall your battles with vicious enemies and are",
+  "proud of the many lines of code you have earned.",
+  "",
+  "The Sourcerer speaks:",
+  "",
+  "To be a better programmer, you must learn from your journey. By taking careful note".light_yellow,
+  "of your successes and analyizing your performance, you can find the information you".light_yellow,
+  "seek to better yourself.".light_yellow,
+  "",
+  "THANK YOU FOR PLAYING!".light_red,
+  "",
+]
+
 class Story
 
   def intro
     return STORY_INTRO
+  end
+
+  def ending
+    return STORY_END
   end
 
   def area_tree

@@ -129,4 +129,10 @@ while running
       ui.player_dead({:story => story})
     exit
   end
+  # If player has reached Sourcerer
+  if player.x == LOTS::MAP_WIDTH && player.y == 1
+    ui.draw_frame({:text => story.ending})
+    ui.new_line
+    running = false
+  end
 end
