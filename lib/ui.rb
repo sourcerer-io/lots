@@ -55,7 +55,28 @@ class UI
     new_line
     print UI_ARROW.light_yellow + " " + "enemy".light_white + " - Display information about your enemy"
     new_line
+    print UI_ARROW.light_yellow + " " + "lines, score, status, info".light_white + " - Display lines of code (score)"
+    new_line
     print UI_ARROW.light_yellow + " " + "quit".light_white + " - Quits the game"
+    new_line
+  end
+
+  def lines(args)
+    player = args[:player]
+    print "You currently have " + player.lines.to_s.light_white + " lines of code."
+    new_line
+  end
+
+  def enemy_info(args)
+    player = args[:player]
+    enemy = player.current_enemy
+    print enemy.name.light_red + " has " + enemy.str.to_s.light_white + " strength and " + enemy.health.to_s.light_white + " health."
+    new_line
+  end
+
+  def player_info(args)
+    player = args[:player]
+    print "You have " + player.health.to_s.light_white + " health and have " + player.lines.to_s.light_white + " lines of code."
     new_line
   end
 
@@ -184,7 +205,6 @@ class UI
   def enemy_greet(args)
     enemy = args[:enemy]
     print enemy.name.light_white + " attacks!"
-    new_line
     new_line
   end
 

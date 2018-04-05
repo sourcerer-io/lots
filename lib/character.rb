@@ -49,12 +49,13 @@ class Character
   def attack(args)
     player = self
     enemy = args[:enemy]
-    
+    ui = args[:ui]
+
     # Does the player even hit the enemy?
     # We could use a hit chance stat here, but since we don't have one,
     # we'll just base it off the player/enemy stength discrepency.
-    puts player.inspect
-    puts enemy.inspect
+    ui.enemy_info({:player => player})
+    ui.player_info({:player => player})
     str_diff = (player.str - enemy.str) * 2
     hit_chance = rand(1...100) + str_diff + HIT_CHANCE_MODIFIER
 

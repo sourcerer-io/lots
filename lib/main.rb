@@ -82,8 +82,9 @@ while running
       end
     when "attack", "a"
       if player.in_combat
-        retval = player.attack({:enemy => player.current_enemy})
+        retval = player.attack({:enemy => player.current_enemy, :ui => ui})
 	if retval == LOTS::ENEMY_KILLED
+	  player.lines += player.current_enemy.lines
           player.current_enemy = nil
 	  player.in_combat = false
 	end
@@ -106,8 +107,16 @@ while running
       else
         ui.not_in_combat
       end
+    when "player", "me", "info", "status", "i"
+      ui.player_info({:player => player})
     when "enemy"
-      puts enemy.inspect
+      if player.in_combat
+        ui.enemy_info({:player => player})
+      else
+        ui.not_in_combat
+      end
+    when "lines", "score"
+      ui.lines({:player => player})
     when "suicide"
       player.dead = 1
     when "help", "h", "?"
