@@ -13,6 +13,12 @@ Written by Robert W. Oliver II
 
 Copyright (C) 2018 Sourcerer, All Rights Reserved.
 
+# Running the Game
+
+```
+ruby bin/lots
+```
+
 # License
 
 ```

@@ -42,6 +42,8 @@ while running
       ui.draw_frame({:text => map})
     when "version", "ver"
       ui.display_version
+    when "clear", "cls"
+      ui.clear
     when "name", "whoami"
       ui.display_name({:player => player})
     when "location", "loc", "where", "whereami"
@@ -52,7 +54,7 @@ while running
       unless player.in_combat
         if !player.move({:direction => :up, :world => world, :ui => ui, :story => story})
           player.in_combat = 1
-	end
+	      end
       else
         ui.cannot_travel_combat
       end
@@ -60,7 +62,7 @@ while running
       unless player.in_combat
         if !player.move({:direction => :down, :world => world, :ui => ui, :story => story})
           player.in_combat = 1
-	end
+	      end
       else
         ui.cannot_travel_combat
       end
@@ -68,7 +70,7 @@ while running
       unless player.in_combat
         if !player.move({:direction => :left, :world => world, :ui => ui, :story => story})
           player.in_combat = 1
-	end
+	      end
       else
         ui.cannot_travel_combat
       end
@@ -76,37 +78,34 @@ while running
       unless player.in_combat
         if !player.move({:direction => :right, :world => world, :ui => ui, :story => story})
           player.in_combat = 1
-	end
+	      end
       else
         ui.cannot_travel_combat
       end
     when "attack", "a"
       if player.in_combat
         retval = player.attack({:enemy => player.current_enemy, :ui => ui})
-	if retval == LOTS::ENEMY_KILLED
-	  player.lines += player.current_enemy.lines
+	      if retval == LOTS::ENEMY_KILLED
+          player.lines += player.current_enemy.lines
+          # Remove enemy from map
+          world.the_map[player.y-1][player.x-1] = LOTS::MAP_KEY_GRASS
+          # Take player out of combat
           player.current_enemy = nil
-	  player.in_combat = false
-	end
-	if retval.is_a? Numeric
+	        player.in_combat = false
+	      end
+	      if retval.is_a? Numeric
           player.current_enemy.health -= retval
-	  retval = player.current_enemy.attack({:player => player})
-	  if retval.is_a? Numeric
+	        retval = player.current_enemy.attack({:player => player})
+	        if retval.is_a? Numeric
             player.health -= retval
           end
-	  if retval == LOTS::PLAYER_DEAD
-            player.dead = 1
-	  end
-	end
-      else
-        ui.not_in_combat
-      end
-    when "cast", "spell"
-      if player.in_combat
-        # TODO: Cast a spell
-      else
-        ui.not_in_combat
-      end
+	      if retval == LOTS::PLAYER_DEAD
+          player.dead = 1
+	      end
+	    end
+    else
+      ui.not_in_combat
+    end
     when "player", "me", "info", "status", "i"
       ui.player_info({:player => player})
     when "enemy"
@@ -121,7 +120,7 @@ while running
       player.dead = 1
     when "help", "h", "?"
       ui.help
-    when "quit"
+    when "quit", "exit"
       ui.quit
       running = nil
     else

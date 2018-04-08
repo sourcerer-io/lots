@@ -57,7 +57,9 @@ class UI
     new_line
     print UI_ARROW.light_yellow + " " + "lines, score, status, info".light_white + " - Display lines of code (score)"
     new_line
-    print UI_ARROW.light_yellow + " " + "quit".light_white + " - Quits the game"
+    print UI_ARROW.light_yellow + " " + "clear, cls".light_white + " - Clears the screen"
+    new_line
+    print UI_ARROW.light_yellow + " " + "quit, exit".light_white + " - Quits the game"
     new_line
   end
 

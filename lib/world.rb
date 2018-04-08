@@ -10,12 +10,12 @@ module LOTS
 MAP_WIDTH = 64
 MAP_HEIGHT = 14
 
-MAP_KEY_TREE      = "\u2618"
-MAP_KEY_WATER     = "\u2668"
+MAP_KEY_TREE      = "\u2663"
+MAP_KEY_WATER     = "\u2248"
 MAP_KEY_GRASS     = "\u2588"
 MAP_KEY_MOUNTAIN  = "\u25B2"
 MAP_KEY_ENEMY     = "\u263A"
-MAP_KEY_SOURCERER = "\u2658"
+MAP_KEY_SOURCERER = "\u263B"
 MAP_KEY_PLAYER    = "\u1330"
 
 # Weighted
@@ -69,12 +69,12 @@ class World
         placed = 0
         # Place sourcerer
         if x == MAP_SOURCERER_X and y == MAP_SOURCERER_Y
-          tmp_row << MAP_KEY_SOURCERER.colorize(:color => :blue, :background => :light_white)
+          tmp_row << MAP_KEY_SOURCERER.colorize(:color => :white, :background => :red)
           placed = 1
         end
         # If player is here, display them
         if x == player.x and y == player.y
-          tmp_row << MAP_KEY_PLAYER.colorize(:color => :light_white, :background => :red) 
+          tmp_row << MAP_KEY_PLAYER.colorize(:color => :red, :background => :white) 
           placed = 1
         end
         # If we haven't already placed the character, run through the rest of the options
@@ -82,9 +82,9 @@ class World
 	  case col
 	    when MAP_KEY_TREE
 	      tmp_row << col.colorize(:color => :light_green, :background => :green)
-            when MAP_KEY_GRASS
+      when MAP_KEY_GRASS
 	      tmp_row << col.colorize(:color => :green, :background => :green)
-            when MAP_KEY_WATER
+      when MAP_KEY_WATER
 	      tmp_row << col.colorize(:color => :white, :background => :blue)
 	    when MAP_KEY_MOUNTAIN
 	      tmp_row << col.colorize(:color => :yellow, :background => :green)
