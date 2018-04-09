@@ -33,12 +33,11 @@ rescue LoadError
 end
 
 # Require libraries
-require_relative "ui"
-require_relative "world"
-require_relative "character"
-require_relative "story"
-require_relative "enemy"
+load "lib/ui.rb"
+load "lib/world.rb"
+load "lib/character.rb"
+load "lib/story.rb"
+load "lib/enemy.rb"
 
 # Start
-require_relative "main"
-
+load "lib/main.rb"
