@@ -13,11 +13,29 @@ Written by Robert W. Oliver II
 
 Copyright (C) 2018 Sourcerer, All Rights Reserved.
 
-# Running the Game
+# Installing LOTS
 
 ```
-ruby bin/lots
+gem install lots
 ```
+
+# Running the Game
+
+Just type "lots" on the console.
+
+# Platform Specific Notes
+
+## Windows
+
+I highly recommend the cmdr console prompt with the Consolas font.
+
+## Mac
+
+For best results, use the "Professional" terminal profile.
+
+## Linux
+
+The default terminal for KDE or XFCE works great with LOTS. 
 
 # License
 
