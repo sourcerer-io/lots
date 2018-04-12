@@ -35,7 +35,7 @@ For best results, use the "Professional" terminal profile.
 
 ## Linux
 
-The default terminal for KDE or XFCE works great with LOTS. 
+The default terminal for KDE or XFCE works great with LOTS. I tested it with those, but others should work well.
 
 # License
 
