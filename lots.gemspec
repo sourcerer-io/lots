@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.files = ["lots.rb", "lib/main.rb", "lib/character.rb", "lib/world.rb", "lib/enemy.rb", "lib/ui.rb", "lib/story.rb"]
   s.add_runtime_dependency 'colorize', '~> 0'
   s.executables << 'lots'
-  s.homepage = "https://github.com/rwoliver2/lots"
+  s.homepage = "https://github.com/sourcerer-io/lots"
   s.license = "GPL-3.0"
 end
