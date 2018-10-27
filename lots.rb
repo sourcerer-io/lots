@@ -32,6 +32,8 @@ rescue LoadError
   exit
 end
 
+require 'pry'
+
 # Require libraries
 load "lib/ui.rb"
 load "lib/world.rb"

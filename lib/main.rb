@@ -37,6 +37,8 @@ while running
   # Get command from user
   cmd = ui.get_cmd
   case cmd
+    when "~"
+      binding.pry
     when "map", "m"
       map = world.get_map({:player => player})
       ui.draw_frame({:text => map})
