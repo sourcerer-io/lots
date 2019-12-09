@@ -1,7 +1,7 @@
 # Legend of the Sourcerer
 
 Legend of the Sourcerer is an open-source text-based adventure game written in Ruby.
-
+[![Run on Repl.it](https://repl.it/badge/github/sourcerer-io/lots)](https://repl.it/github/sourcerer-io/lots)
 https://blog.sourcerer.io/legend-of-the-sourcerer-a-text-based-adventure-game-in-ruby-9220b385ca1e
 
 # Credits 
